@@ -3,3 +3,4 @@
 -- Add any additional options here
 local opt = vim.opt
 opt.spelllang = { "en", "cjk" }
+vim.opt.conceallevel = 0
