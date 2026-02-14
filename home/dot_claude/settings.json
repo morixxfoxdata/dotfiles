@@ -10,6 +10,12 @@
       "Read(~/.ssh/**)"
     ]
   },
+  "model": "opus",
   "language": "japanese",
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": false,
+  "skipDangerousModePermissionPrompt": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/norikikomori/.claude/statusline-command.sh"
+  }
 }
