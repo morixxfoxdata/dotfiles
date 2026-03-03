@@ -13,9 +13,13 @@
   "model": "opus",
   "language": "japanese",
   "alwaysThinkingEnabled": false,
+<<<<<<< HEAD
   "skipDangerousModePermissionPrompt": true,
   "statusLine": {
     "type": "command",
     "command": "bash /Users/norikikomori/.claude/statusline-command.sh"
   }
+=======
+  "includeCoAuthoredBy": false
+>>>>>>> 37b014a (coauthored)
 }
