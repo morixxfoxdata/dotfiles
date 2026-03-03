@@ -8,18 +8,21 @@
       "Read(id_ed25519*)",
       "Write(.env*)",
       "Read(~/.ssh/**)"
-    ]
+    ],
+    "allow": [
+      "Bash(uv run *)",
+      "Bash(uv sync *)",
+      "Bash(uv add *)",
+      "Bash(git status)",
+      "Bash(ruff *)"
+    ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(chmod *)"
+    ],
+    "defaultMode": "plan"
   },
-  "model": "opus",
   "language": "japanese",
-  "alwaysThinkingEnabled": false,
-<<<<<<< HEAD
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/norikikomori/.claude/statusline-command.sh"
-  }
-=======
+  "alwaysThinkingEnabled": true,
   "includeCoAuthoredBy": false
->>>>>>> 37b014a (coauthored)
 }
