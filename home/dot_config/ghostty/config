@@ -4,5 +4,4 @@ unfocused-split-opacity = 0.65
 theme = Kanagawa Wave
 font-feature = -calt
 font-feature = -dilg
-font-size = 15
 macos-titlebar-proxy-icon = hidden
