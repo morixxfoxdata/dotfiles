@@ -23,6 +23,7 @@
     "defaultMode": "plan"
   },
   "language": "japanese",
+  "effortLevel": "high",
   "alwaysThinkingEnabled": true,
   "includeCoAuthoredBy": false
 }
