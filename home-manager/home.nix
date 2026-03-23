@@ -19,6 +19,13 @@
   # environment.
   home.packages = with pkgs; [
     git
+    fzf
+    gh
+    lazygit
+    yazi
+    uv
+    neovim
+    starship
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
