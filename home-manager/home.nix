@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, llm-agents, system, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -26,6 +26,8 @@
     uv
     neovim
     starship
+    llm-agents.packages.${system}.claude-code
+    llm-agents.packages.${system}.codex
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
