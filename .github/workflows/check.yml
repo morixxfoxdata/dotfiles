@@ -1,0 +1,21 @@
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Validate flake
+        run: nix flake check
+
+      - name: Evaluate home configuration
+        run: nix eval .#homeConfigurations.norikikomori.activationPackage --no-link
