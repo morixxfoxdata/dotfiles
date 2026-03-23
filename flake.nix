@@ -1,6 +1,6 @@
 {
   description = "Home Manager configuration of norikikomori";
-
+  # Home Managerのソース, nixpkgsをどこから取得するかを定義している
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
