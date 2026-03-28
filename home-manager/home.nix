@@ -21,6 +21,7 @@
     nodejs
     google-cloud-sdk
     rustup
+    zoxide
     zsh-autosuggestions
     zsh-syntax-highlighting
     llm-agents.packages.${system}.claude-code

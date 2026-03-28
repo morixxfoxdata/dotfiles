@@ -14,3 +14,6 @@ export EDITOR="nvim"
 
 # Nix profile
 export PATH="$HOME/.nix-profile/bin:$PATH"
+
+# Zoxide
+eval "$(zoxide init zsh)"

@@ -15,7 +15,7 @@
     let
       # ホスト定義: 新しいマシンを追加する場合はここにエントリを追加
       hosts = {
-        mbp = {
+        NorikinoMacBook-Pro = {
           system = "aarch64-darwin";
           hostModule = ./hosts/mbp.nix;
         };
