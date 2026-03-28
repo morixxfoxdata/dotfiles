@@ -1,8 +1,15 @@
 # dotfiles
 
-Nix Flakes + Home Manager で管理する macOS (aarch64-darwin) 開発環境。
+Nix Flakes + Home Manager で管理する開発環境。macOS (aarch64-darwin) と Linux (x86_64-linux) に対応。
 
-## セットアップ
+## クイックスタート
+
+```bash
+# ワンコマンドでセットアップ (Nix インストール → クローン → 適用)
+curl -sL https://raw.githubusercontent.com/morixxfoxdata/dotfiles/main/bootstrap.sh | bash -s -- mbp
+```
+
+### 手動セットアップ
 
 ```bash
 # 1. Nix をインストール
@@ -12,9 +19,19 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 git clone https://github.com/morixxfoxdata/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-# 3. 適用
-home-manager switch --flake .
+# 3. 適用 (ホスト名を指定)
+home-manager switch --flake .#mbp        # MacBook Pro
+home-manager switch --flake .#gpu-server  # GPU サーバー
 ```
+
+## ホスト構成
+
+| ホスト名 | system | 用途 |
+|----------|--------|------|
+| `mbp` | aarch64-darwin | MacBook Pro (メイン) |
+| `gpu-server` | x86_64-linux | GPU サーバー |
+
+新しいマシンを追加するには `hosts/<name>.nix` を作成し、`flake.nix` の `hosts` に追加する。
 
 ## 構成
 
@@ -22,31 +39,23 @@ home-manager switch --flake .
 dotfiles/
 ├── flake.nix              # Nix Flakes エントリポイント
 ├── flake.lock             # 依存のロックファイル
+├── bootstrap.sh           # ワンコマンドセットアップスクリプト
+├── hosts/                 # ホスト固有の設定
+│   ├── default.nix        # hostSpec オプション定義
+│   ├── mbp.nix            # MacBook Pro
+│   └── gpu-server.nix     # GPU サーバー
 ├── .github/workflows/     # CI (nix flake check)
 └── home-manager/
     ├── home.nix           # パッケージ管理・Home Manager 設定
-    ├── dotfiles.nix       # link_force によるシンボリックリンク管理
+    ├── dotfiles.nix       # シンボリックリンク管理 (macOS/Linux 条件分岐)
     ├── git/               # Git 設定
-    │   ├── .gitconfig
-    │   └── ignore
     ├── nvim/              # Neovim (LazyVim)
-    │   ├── init.lua
-    │   └── lua/
-    │       ├── config/    # options, keymaps, autocmds
-    │       └── plugins/   # プラグイン設定
     ├── zsh/               # Zsh 設定
-    │   ├── .zshrc
-    │   └── .zshenv
     ├── starship/          # Starship プロンプト
-    │   └── starship.toml
-    ├── ghostty/           # Ghostty ターミナル
-    │   └── config
+    ├── ghostty/           # Ghostty ターミナル (macOS)
     ├── gh/                # GitHub CLI
-    │   └── config.yml
-    ├── karabiner/         # Karabiner-Elements
-    │   └── karabiner.json
-    └── aerospace/         # AeroSpace ウィンドウマネージャ
-        └── aerospace.toml
+    ├── karabiner/         # Karabiner-Elements (macOS)
+    └── aerospace/         # AeroSpace ウィンドウマネージャ (macOS)
 ```
 
 ## 管理パッケージ
@@ -61,16 +70,33 @@ dotfiles/
 | yazi | ファイルマネージャ |
 | gh | GitHub CLI |
 | uv | Python パッケージマネージャ |
+| nodejs | JavaScript ランタイム |
+| google-cloud-sdk | GCP CLI |
+| rustup | Rust ツールチェーン |
+| zsh-autosuggestions | Zsh 入力補完 |
+| zsh-syntax-highlighting | Zsh シンタックスハイライト |
 | claude-code | AI コーディングアシスタント |
 | codex | AI コーディングアシスタント |
+
+## Flake Apps
+
+```bash
+# 設定を適用 (ホスト名を自動検出)
+nix run .#switch
+
+# flake.lock を更新して適用
+nix run .#update
+```
 
 ## 設定ファイルの管理方式
 
 `home.activation` の `link_force` で、リポジトリのファイルへ直接シンボリックリンクを作成する。Nix store を経由しないため、設定ファイルは mutable（編集可能）。
 
+macOS 専用ツール (Karabiner, AeroSpace, Ghostty) は `hostSpec.isDarwin` による条件分岐で macOS でのみリンクされる。
+
 ```
 ~/.config/nvim       → ~/dotfiles/home-manager/nvim        (編集可能)
-~/.config/ghostty/   → ~/dotfiles/home-manager/ghostty/     (編集可能)
+~/.config/ghostty/   → ~/dotfiles/home-manager/ghostty/     (macOS only)
 ~/.gitconfig         → ~/dotfiles/home-manager/git/.gitconfig
 ```
 
@@ -99,8 +125,10 @@ LazyVim をベースにした設定。
 
 ### Zsh (`home-manager/zsh/`)
 
-- `.zshenv` — Cargo の環境変数を読み込み
-- `.zshrc` — nvm、Google Cloud SDK、Starship の初期化。`EDITOR=nvim`
+- **プラグイン**: zsh-autosuggestions, zsh-syntax-highlighting (Nix 管理)
+- **プロンプト**: Starship
+- **環境変数**: `EDITOR=nvim`
+- **Rust**: `$HOME/.cargo/bin` を PATH に追加
 
 ### Starship (`home-manager/starship/`)
 
@@ -110,18 +138,18 @@ Nord 系カラーの 2 行プロンプト。
 - **右**: コマンド実行時間 + ユーザー名 + 時刻
 - AWS / GCloud のプロンプト表示は無効化
 
-### Ghostty (`home-manager/ghostty/`)
+### Ghostty (`home-manager/ghostty/`) — macOS only
 
 - テーマ: Kanagawa Wave
 - 背景透過: 75%、ブラー半径 20
 - タイトルバーのプロキシアイコンを非表示
 
-### Karabiner-Elements (`home-manager/karabiner/`)
+### Karabiner-Elements (`home-manager/karabiner/`) — macOS only
 
 - 左 ⌘ 単押し → 英数、右 ⌘ 単押し → かな（US 配列向け IME 切替）
 - `international3` → バッククォート（JIS キーボード互換）
 
-### AeroSpace (`home-manager/aerospace/`)
+### AeroSpace (`home-manager/aerospace/`) — macOS only
 
 タイル型ウィンドウマネージャ。
 
@@ -170,24 +198,27 @@ vim home-manager/tmux/tmux.conf
 link_force "${dotfilesDir}/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 ```
 
+macOS 専用のツールは `${lib.optionalString isDarwin '' ... ''}` ブロック内に追加する。
+
 ### 4. 適用
 
 ```bash
-home-manager switch --flake .
+nix run .#switch
+# または
+home-manager switch --flake .#mbp
 ```
-
-これでパッケージのインストールとシンボリックリンクの作成が一度に行われる。
 
 > **設定ファイルが不要なツール**（fzf など）は、手順 1 と 4 だけでよい。
 
 ## 更新
 
 ```bash
-# flake.lock を更新（全依存を最新に）
-nix flake update
+# flake.lock を更新して適用
+nix run .#update
 
-# 適用
-home-manager switch --flake .
+# または個別に
+nix flake update
+home-manager switch --flake .#mbp
 ```
 
 ## CI

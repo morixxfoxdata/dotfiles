@@ -5,8 +5,8 @@
     ./dotfiles.nix
   ];
 
-  home.username = "norikikomori";
-  home.homeDirectory = "/Users/norikikomori";
+  home.username = config.hostSpec.username;
+  home.homeDirectory = config.hostSpec.homeDirectory;
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
@@ -18,6 +18,11 @@
     uv
     neovim
     starship
+    nodejs
+    google-cloud-sdk
+    rustup
+    zsh-autosuggestions
+    zsh-syntax-highlighting
     llm-agents.packages.${system}.claude-code
     llm-agents.packages.${system}.codex
   ];

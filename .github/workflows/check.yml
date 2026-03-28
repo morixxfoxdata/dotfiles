@@ -15,7 +15,7 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
 
       - name: Validate flake
-        run: nix flake check
+        run: nix flake check --all-systems
 
-      - name: Evaluate home configuration
-        run: nix eval .#homeConfigurations.norikikomori.activationPackage --no-link
+      - name: Evaluate home configuration (gpu-server)
+        run: nix eval .#homeConfigurations.gpu-server.activationPackage

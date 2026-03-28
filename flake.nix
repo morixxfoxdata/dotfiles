@@ -1,8 +1,7 @@
 {
   description = "Home Manager configuration of norikikomori";
-  # Home Managerのソース, nixpkgsをどこから取得するかを定義している
+
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,20 +13,60 @@
   outputs =
     { nixpkgs, home-manager, llm-agents, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+      # ホスト定義: 新しいマシンを追加する場合はここにエントリを追加
+      hosts = {
+        mbp = {
+          system = "aarch64-darwin";
+          hostModule = ./hosts/mbp.nix;
+        };
+        gpu-server = {
+          system = "x86_64-linux";
+          hostModule = ./hosts/gpu-server.nix;
+        };
+      };
+
+      mkHomeConfiguration =
+        name:
+        { system, hostModule }:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./hosts/default.nix
+            hostModule
+            ./home-manager/home.nix
+          ];
+          extraSpecialArgs = { inherit llm-agents system; };
+        };
+
+      # 全ホスト共通の system リスト (flake apps 用)
+      allSystems = nixpkgs.lib.unique (nixpkgs.lib.mapAttrsToList (_: h: h.system) hosts);
     in
     {
-      homeConfigurations."norikikomori" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      homeConfigurations = nixpkgs.lib.mapAttrs mkHomeConfiguration hosts;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home-manager/home.nix ];
-        extraSpecialArgs = { inherit llm-agents system; };
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
+      # Flake apps: nix run .#switch, nix run .#update
+      apps = nixpkgs.lib.genAttrs allSystems (system: {
+        switch = {
+          type = "app";
+          program = toString (nixpkgs.legacyPackages.${system}.writeShellScript "switch" ''
+            hostname=$(hostname -s)
+            echo "Switching Home Manager configuration for: $hostname"
+            home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
+          '');
+        };
+        update = {
+          type = "app";
+          program = toString (nixpkgs.legacyPackages.${system}.writeShellScript "update" ''
+            hostname=$(hostname -s)
+            echo "Updating flake inputs..."
+            nix flake update
+            echo "Switching Home Manager configuration for: $hostname"
+            home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
+          '');
+        };
+      });
     };
 }

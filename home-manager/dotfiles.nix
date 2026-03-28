@@ -2,6 +2,7 @@
 
 let
   dotfilesDir = "${config.home.homeDirectory}/dotfiles/home-manager";
+  isDarwin = config.hostSpec.isDarwin;
 in
 {
   home.activation.linkDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -30,6 +31,8 @@ in
     # GitHub CLI
     link_force "${dotfilesDir}/gh/config.yml" "$HOME/.config/gh/config.yml"
 
+    ${lib.optionalString isDarwin ''
+    # macOS only
     # Karabiner
     link_force "${dotfilesDir}/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
@@ -38,5 +41,6 @@ in
 
     # Ghostty
     link_force "${dotfilesDir}/ghostty/config" "$HOME/.config/ghostty/config"
+    ''}
   '';
 }
