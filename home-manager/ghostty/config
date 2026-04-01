@@ -5,3 +5,7 @@ theme = Kanagawa Wave
 font-feature = -calt
 font-feature = -dilg
 macos-titlebar-proxy-icon = hidden
+keybind = alt+ctrl+h=resize_split:left,10
+keybind = alt+ctrl+j=resize_split:down,10
+keybind = alt+ctrl+k=resize_split:up,10
+keybind = alt+ctrl+l=resize_split:right,10
