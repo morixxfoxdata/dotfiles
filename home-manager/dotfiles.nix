@@ -31,6 +31,12 @@ in
     # GitHub CLI
     link_force "${dotfilesDir}/gh/config.yml" "$HOME/.config/gh/config.yml"
 
+    # Claude Code
+    link_force "${dotfilesDir}/claude/settings.json" "$HOME/.claude/settings.json"
+    link_force "${dotfilesDir}/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+    link_force "${dotfilesDir}/claude/rules" "$HOME/.claude/rules"
+    link_force "${dotfilesDir}/claude/hooks" "$HOME/.claude/hooks"
+
     ${lib.optionalString isDarwin ''
     # macOS only
     # Karabiner

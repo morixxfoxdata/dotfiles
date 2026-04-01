@@ -1,0 +1,41 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(uv run *)",
+      "Bash(uv sync *)",
+      "Bash(uv add *)",
+      "Bash(git status)",
+      "Bash(ruff *)"
+    ],
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(rm -rf *)",
+      "Bash(chmod 777 *)",
+      "Read(id_rsa*)",
+      "Read(id_ed25519*)",
+      "Write(.env*)",
+      "Read(~/.ssh/**)"
+    ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(chmod *)"
+    ],
+    "defaultMode": "plan"
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
+  },
+  "language": "japanese",
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "autoMemoryEnabled": false,
+  "enabledPlugins": {
+    "codex@openai-codex": true
+  }
+}
