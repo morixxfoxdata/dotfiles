@@ -68,10 +68,10 @@ main() {
   if [ $# -ge 1 ]; then
     hostname="$1"
   else
-    info "Available hosts: mbp, gpu-server"
-    printf "Enter hostname [mbp]: "
+    info "Available hosts: NorikinoMacBook-Pro, Mac-mini, gpu-server"
+    printf "Enter hostname (or press Enter for auto-detect): "
     read -r hostname
-    hostname="${hostname:-mbp}"
+    hostname="${hostname:-$(hostname -s)}"
   fi
 
   apply_config "$hostname"

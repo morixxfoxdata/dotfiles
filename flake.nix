@@ -23,6 +23,10 @@
           system = "x86_64-linux";
           hostModule = ./hosts/gpu-server.nix;
         };
+        Mac-mini = {
+          system = "aarch64-darwin";
+          hostModule = ./hosts/mac-mini.nix;
+        };
       };
 
       mkHomeConfiguration =
