@@ -52,25 +52,31 @@
       homeConfigurations = nixpkgs.lib.mapAttrs mkHomeConfiguration hosts;
 
       # Flake apps: nix run .#switch, nix run .#update
-      apps = nixpkgs.lib.genAttrs allSystems (system: {
-        switch = {
-          type = "app";
-          program = toString (nixpkgs.legacyPackages.${system}.writeShellScript "switch" ''
-            hostname=$(hostname -s)
-            echo "Switching Home Manager configuration for: $hostname"
-            home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
-          '');
-        };
-        update = {
-          type = "app";
-          program = toString (nixpkgs.legacyPackages.${system}.writeShellScript "update" ''
-            hostname=$(hostname -s)
-            echo "Updating flake inputs..."
-            nix flake update
-            echo "Switching Home Manager configuration for: $hostname"
-            home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
-          '');
-        };
-      });
+      apps = nixpkgs.lib.genAttrs allSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          hm = home-manager.packages.${system}.home-manager;
+        in
+        {
+          switch = {
+            type = "app";
+            program = toString (pkgs.writeShellScript "switch" ''
+              hostname=$(hostname -s)
+              echo "Switching Home Manager configuration for: $hostname"
+              ${hm}/bin/home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
+            '');
+          };
+          update = {
+            type = "app";
+            program = toString (pkgs.writeShellScript "update" ''
+              hostname=$(hostname -s)
+              echo "Updating flake inputs..."
+              nix flake update "${builtins.toString ./.}"
+              echo "Switching Home Manager configuration for: $hostname"
+              ${hm}/bin/home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
+            '');
+          };
+        }
+      );
     };
 }

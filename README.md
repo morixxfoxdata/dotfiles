@@ -20,10 +20,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 git clone https://github.com/morixxfoxdata/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-# 3. 適用 (ホスト名は hostname -s の出力と一致させる)
-home-manager switch --flake .#NorikinoMacBook-Pro  # MacBook Pro
-home-manager switch --flake .#Mac-mini             # Mac Mini
-home-manager switch --flake .#gpu-server           # GPU サーバー
+# 3. 適用 (hostname -s でホスト名を自動検出)
+nix run .#switch
 ```
 
 ## ホスト構成

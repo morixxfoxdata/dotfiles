@@ -3,8 +3,8 @@
 {
   hostSpec = {
     hostName = "mac-mini";
-    username = "norikikomori";
-    homeDirectory = "/Users/norikikomori";
+    username = "komori";
+    homeDirectory = "/Users/komori";
     system = "aarch64-darwin";
     isDarwin = true;
   };
