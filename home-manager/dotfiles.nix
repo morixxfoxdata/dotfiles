@@ -34,6 +34,7 @@ in
     # Claude Code
     link_force "${dotfilesDir}/claude/settings.json" "$HOME/.claude/settings.json"
     link_force "${dotfilesDir}/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+    link_force "${dotfilesDir}/claude/statusline.py" "$HOME/.claude/statusline.py"
     link_force "${dotfilesDir}/claude/rules" "$HOME/.claude/rules"
     link_force "${dotfilesDir}/claude/hooks" "$HOME/.claude/hooks"
 
