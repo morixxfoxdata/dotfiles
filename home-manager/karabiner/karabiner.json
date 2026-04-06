@@ -5,7 +5,6 @@
                 "rules": [
                     {
                         "description": "［ US ］左右のコマンドキー（⌘）を、単独で押したときは 英数・かな キー として扱う（左⌘は 英数、右⌘は かな）",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "description": " LEFT COMMAND → EISUU ",
