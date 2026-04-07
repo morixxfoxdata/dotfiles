@@ -1,8 +1,4 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "python3 ~/.claude/statusline.py"
-  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -27,6 +23,14 @@
     ],
     "defaultMode": "plan"
   },
+  "statusLine": {
+    "type": "command",
+    "command": "python3 ~/.claude/statusline.py"
+  },
+  "enabledPlugins": {
+    "codex@openai-codex": true,
+    "claude-md-management@claude-plugins-official": true
+  },
   "extraKnownMarketplaces": {
     "openai-codex": {
       "source": {
@@ -38,8 +42,5 @@
   "language": "japanese",
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
-  "autoMemoryEnabled": false,
-  "enabledPlugins": {
-    "codex@openai-codex": true
-  }
+  "autoMemoryEnabled": false
 }
