@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     git
+    ripgrep
     fzf
     gh
     lazygit
