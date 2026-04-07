@@ -19,9 +19,9 @@
           system = "aarch64-darwin";
           hostModule = ./hosts/mbp.nix;
         };
-        gpu-server = {
+        gansan = {
           system = "x86_64-linux";
-          hostModule = ./hosts/gpu-server.nix;
+          hostModule = ./hosts/gansan.nix;
         };
         Mac-mini = {
           system = "aarch64-darwin";

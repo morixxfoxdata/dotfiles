@@ -68,7 +68,7 @@ main() {
   if [ $# -ge 1 ]; then
     hostname="$1"
   else
-    info "Available hosts: NorikinoMacBook-Pro, Mac-mini, gpu-server"
+    info "Available hosts: NorikinoMacBook-Pro, Mac-mini, gansan"
     printf "Enter hostname (or press Enter for auto-detect): "
     read -r hostname
     hostname="${hostname:-$(hostname -s)}"
