@@ -1,0 +1,126 @@
+snippets:
+  # -- Git --
+  - name: git status
+    keyword: gs
+    snippet: git status --short --branch
+
+  - name: git add
+    keyword: ga
+    snippet: git add
+
+  - name: git add all
+    keyword: gaa
+    snippet: git add --all
+
+  - name: git commit
+    keyword: gc
+    snippet: git commit
+
+  - name: git commit message
+    keyword: gcm
+    snippet: git commit -m '{{commit_message}}'
+
+  - name: git push
+    keyword: gp
+    snippet: git push
+
+  - name: git pull
+    keyword: gl
+    snippet: git pull
+
+  - name: git diff
+    keyword: gd
+    snippet: git diff
+
+  - name: git log oneline
+    keyword: glo
+    snippet: git log --oneline
+
+  - name: git switch
+    keyword: gsw
+    snippet: git switch
+
+  - name: git checkout
+    keyword: gco
+    snippet: git checkout
+
+  - name: git branch
+    keyword: gb
+    snippet: git branch
+
+  - name: git stash
+    keyword: gst
+    snippet: git stash
+
+  - name: git clone
+    keyword: gcl
+    snippet: git clone
+
+  # -- Tools --
+  - name: claude
+    keyword: c
+    snippet: claude
+
+  - name: claude continue
+    keyword: cc
+    snippet: claude -c
+
+  - name: lazygit
+    keyword: lg
+    snippet: lazygit
+
+  - name: neovim
+    keyword: v
+    snippet: nvim
+
+  - name: yazi
+    keyword: y
+    snippet: yazi
+
+  - name: nix run switch
+    keyword: nrs
+    snippet: nix run .#switch
+
+  - name: reload shell
+    keyword: r
+    snippet: exec $SHELL -l
+
+  # -- Git context-aware --
+  - name: git push force-with-lease
+    keyword: -f
+    snippet: --force-with-lease
+    context:
+      lbuffer: '^git push\s'
+
+  # -- Suffix snippets (context-aware) --
+  - name: "null redirect"
+    keyword: "null"
+    snippet: ">/dev/null 2>&1"
+    context:
+      lbuffer: '.+\s'
+
+  - name: pipe less
+    keyword: L
+    snippet: "| less"
+    context:
+      lbuffer: '.+\s'
+
+  - name: pipe grep
+    keyword: G
+    snippet: "| rg"
+    context:
+      lbuffer: '.+\s'
+
+  - name: pipe head
+    keyword: H
+    snippet: "| head"
+    context:
+      lbuffer: '.+\s'
+
+  - name: pipe tail
+    keyword: T
+    snippet: "| tail"
+    context:
+      lbuffer: '.+\s'
+
+completions: []

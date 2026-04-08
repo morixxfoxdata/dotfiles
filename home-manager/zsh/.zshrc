@@ -6,6 +6,20 @@ if [ -f "$HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlightin
   source "$HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
+# Zeno
+if [ -f "$HOME/.nix-profile/share/zeno/zeno.zsh" ]; then
+  source "$HOME/.nix-profile/share/zeno/zeno.zsh"
+  if [[ -n $ZENO_LOADED ]]; then
+    bindkey ' '  zeno-auto-snippet
+    bindkey '^m' zeno-auto-snippet-and-accept-line
+    bindkey '^i' zeno-completion
+    bindkey '^r' zeno-history-selection
+    bindkey '^x ' zeno-insert-space
+    bindkey '^x^m' accept-line
+    bindkey '^x^z' zeno-toggle-auto-snippet
+  fi
+fi
+
 # Starship prompt
 eval "$(starship init zsh)"
 

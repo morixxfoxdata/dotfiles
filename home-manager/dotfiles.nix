@@ -28,6 +28,9 @@ in
     link_force "${dotfilesDir}/zsh/.zshrc" "$HOME/.zshrc"
     link_force "${dotfilesDir}/zsh/.zshenv" "$HOME/.zshenv"
 
+    # Zeno
+    link_force "${dotfilesDir}/zeno/config.yml" "$HOME/.config/zeno/config.yml"
+
     # GitHub CLI
     link_force "${dotfilesDir}/gh/config.yml" "$HOME/.config/gh/config.yml"
 

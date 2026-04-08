@@ -1,5 +1,8 @@
 { config, pkgs, llm-agents, system, ... }:
 
+let
+  zeno-zsh = pkgs.callPackage ./packages/zeno-zsh.nix {};
+in
 {
   imports = [
     ./dotfiles.nix
@@ -24,8 +27,10 @@
     rustup
     eza
     zoxide
+    deno
     zsh-autosuggestions
     zsh-syntax-highlighting
+    zeno-zsh
     llm-agents.packages.${system}.claude-code
     llm-agents.packages.${system}.codex
     llm-agents.packages.${system}.gemini-cli

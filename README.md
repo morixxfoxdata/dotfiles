@@ -100,6 +100,8 @@ dotfiles/
     ├── git/               # Git 設定
     ├── nvim/              # Neovim (LazyVim)
     ├── zsh/               # Zsh 設定
+    ├── zeno/              # Zeno (abbr / fuzzy completion)
+    ├── packages/          # カスタム Nix パッケージ定義
     ├── starship/          # Starship プロンプト
     ├── ghostty/           # Ghostty ターミナル (macOS)
     ├── gh/                # GitHub CLI
@@ -123,6 +125,8 @@ dotfiles/
 | nodejs | JavaScript ランタイム |
 | google-cloud-sdk | GCP CLI |
 | rustup | Rust ツールチェーン |
+| deno | JavaScript/TypeScript ランタイム (zeno.zsh 依存) |
+| zeno-zsh | Zsh abbr / fuzzy completion (カスタムパッケージ) |
 | zsh-autosuggestions | Zsh 入力補完 |
 | zsh-syntax-highlighting | Zsh シンタックスハイライト |
 | claude-code | AI コーディングアシスタント |
@@ -175,10 +179,56 @@ LazyVim をベースにした設定。
 
 ### Zsh (`home-manager/zsh/`)
 
-- **プラグイン**: zsh-autosuggestions, zsh-syntax-highlighting (Nix 管理)
+- **プラグイン**: zsh-autosuggestions, zsh-syntax-highlighting, zeno.zsh (Nix 管理)
 - **プロンプト**: Starship
 - **環境変数**: `EDITOR=nvim`
 - **Rust**: `$HOME/.cargo/bin` を PATH に追加
+
+### Zeno (`home-manager/zeno/`)
+
+[yuki-yano/zeno.zsh](https://github.com/yuki-yano/zeno.zsh) による abbreviation 展開と fzf 補完。Deno ベース。
+
+スペースキーで短縮形を自動展開する（fish の abbr 相当）。
+
+| キーワード | 展開 | 備考 |
+|-----------|------|------|
+| `c` | `claude` | |
+| `cc` | `claude -c` | |
+| `v` | `nvim` | |
+| `lg` | `lazygit` | |
+| `y` | `yazi` | |
+| `r` | `exec $SHELL -l` | シェル再起動 |
+| `nrs` | `nix run .#switch` | |
+| `gs` | `git status --short --branch` | |
+| `ga` | `git add` | |
+| `gaa` | `git add --all` | |
+| `gc` | `git commit` | |
+| `gcm` | `git commit -m '...'` | プレースホルダー付き |
+| `gp` | `git push` | |
+| `gl` | `git pull` | |
+| `gd` | `git diff` | |
+| `glo` | `git log --oneline` | |
+| `gsw` | `git switch` | |
+| `gco` | `git checkout` | |
+| `gb` | `git branch` | |
+| `gst` | `git stash` | |
+| `gcl` | `git clone` | |
+| `-f` | `--force-with-lease` | `git push` の後でのみ |
+| `null` | `>/dev/null 2>&1` | コマンドの後でのみ |
+| `G` | `\| rg` | コマンドの後でのみ |
+| `L` | `\| less` | コマンドの後でのみ |
+| `H` | `\| head` | コマンドの後でのみ |
+| `T` | `\| tail` | コマンドの後でのみ |
+
+キーバインド:
+- `Space` — abbr 展開
+- `Enter` — abbr 展開 + 実行
+- `Tab` — fzf 補完
+- `Ctrl+r` — fzf 履歴検索
+- `Ctrl+x Space` — 展開せずスペース入力
+- `Ctrl+x Ctrl+z` — 自動展開のトグル
+
+abbr を追加するには `home-manager/zeno/config.yml` を編集する（シンボリックリンクなので即反映）。
 
 ### Starship (`home-manager/starship/`)
 
