@@ -28,6 +28,7 @@
     zsh-syntax-highlighting
     llm-agents.packages.${system}.claude-code
     llm-agents.packages.${system}.codex
+    llm-agents.packages.${system}.gemini-cli
   ];
 
   home.sessionVariables = {
