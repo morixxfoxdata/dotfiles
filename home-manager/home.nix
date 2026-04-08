@@ -22,6 +22,7 @@
     nodejs
     google-cloud-sdk
     rustup
+    eza
     zoxide
     zsh-autosuggestions
     zsh-syntax-highlighting
