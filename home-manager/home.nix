@@ -1,4 +1,4 @@
-{ config, pkgs, llm-agents, system, ... }:
+{ config, pkgs, llm-agents, arto, system, ... }:
 
 let
   zeno-zsh = pkgs.callPackage ./packages/zeno-zsh.nix {};
@@ -34,6 +34,7 @@ in
     llm-agents.packages.${system}.claude-code
     llm-agents.packages.${system}.codex
     llm-agents.packages.${system}.gemini-cli
+    arto.packages.${system}.default
   ];
 
   home.sessionVariables = {
