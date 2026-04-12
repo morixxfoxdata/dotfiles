@@ -17,5 +17,5 @@ jobs:
       - name: Validate flake
         run: nix flake check --all-systems
 
-      - name: Evaluate home configuration (gpu-server)
-        run: nix eval .#homeConfigurations.gpu-server.activationPackage
+      - name: Evaluate home configuration (gansan)
+        run: nix eval .#homeConfigurations.gansan.activationPackage
