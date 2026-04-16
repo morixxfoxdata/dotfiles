@@ -62,19 +62,21 @@
           switch = {
             type = "app";
             program = toString (pkgs.writeShellScript "switch" ''
+              FLAKE_DIR="''${FLAKE_DIR:-$HOME/dotfiles}"
               hostname=$(hostname -s)
               echo "Switching Home Manager configuration for: $hostname"
-              ${hm}/bin/home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
+              ${hm}/bin/home-manager switch --flake "$FLAKE_DIR#$hostname" "$@"
             '');
           };
           update = {
             type = "app";
             program = toString (pkgs.writeShellScript "update" ''
+              FLAKE_DIR="''${FLAKE_DIR:-$HOME/dotfiles}"
               hostname=$(hostname -s)
               echo "Updating flake inputs..."
-              nix flake update "${builtins.toString ./.}"
+              nix flake update "$FLAKE_DIR"
               echo "Switching Home Manager configuration for: $hostname"
-              ${hm}/bin/home-manager switch --flake "${builtins.toString ./.}#$hostname" "$@"
+              ${hm}/bin/home-manager switch --flake "$FLAKE_DIR#$hostname" "$@"
             '');
           };
         }
