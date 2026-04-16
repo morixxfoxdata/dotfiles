@@ -2,4 +2,4 @@
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Claude Code
-export CLAUDE_CODE_EFFORT_LEVEL=max
+export CLAUDE_CODE_EFFORT_LEVEL=xhigh
