@@ -8,11 +8,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-agents.url = "github:numtide/llm-agents.nix";
+    nix-claude-code.url = "github:ryoppippi/nix-claude-code";
     arto.url = "github:arto-app/Arto";
   };
 
   outputs =
-    { nixpkgs, home-manager, llm-agents, arto, ... }:
+    { nixpkgs, home-manager, llm-agents, nix-claude-code, arto, ... }:
     let
       # ホスト定義: 新しいマシンを追加する場合はここにエントリを追加
       hosts = {
@@ -43,7 +44,7 @@
             hostModule
             ./home-manager/home.nix
           ];
-          extraSpecialArgs = { inherit llm-agents arto system; };
+          extraSpecialArgs = { inherit llm-agents nix-claude-code arto system; };
         };
 
       # 全ホスト共通の system リスト (flake apps 用)

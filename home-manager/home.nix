@@ -1,4 +1,4 @@
-{ config, pkgs, llm-agents, arto, system, ... }:
+{ config, pkgs, llm-agents, nix-claude-code, arto, system, ... }:
 
 let
   zeno-zsh = pkgs.callPackage ./packages/zeno-zsh.nix {};
@@ -31,7 +31,7 @@ in
     zsh-autosuggestions
     zsh-syntax-highlighting
     zeno-zsh
-    llm-agents.packages.${system}.claude-code
+    nix-claude-code.packages.${system}.default
     llm-agents.packages.${system}.codex
     llm-agents.packages.${system}.gemini-cli
     arto.packages.${system}.default
