@@ -2,6 +2,7 @@
 
 let
   zeno-zsh = pkgs.callPackage ./packages/zeno-zsh.nix {};
+  difit = pkgs.callPackage ./packages/difit {};
 in
 {
   imports = [
@@ -31,6 +32,7 @@ in
     zsh-autosuggestions
     zsh-syntax-highlighting
     zeno-zsh
+    difit
     nix-claude-code.packages.${system}.default
     llm-agents.packages.${system}.codex
     llm-agents.packages.${system}.gemini-cli
