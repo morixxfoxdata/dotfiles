@@ -31,3 +31,6 @@ export PATH="$HOME/.nix-profile/bin:$PATH"
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# mise
+eval "$(mise activate zsh)"

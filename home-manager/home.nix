@@ -21,6 +21,7 @@ in
     lazygit
     yazi
     uv
+    mise
     neovim
     starship
     nodejs
