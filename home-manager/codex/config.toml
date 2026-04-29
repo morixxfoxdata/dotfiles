@@ -1,0 +1,9 @@
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+personality = "pragmatic"
+
+[tools]
+web_search = true
+
+[features]
+memories = true
