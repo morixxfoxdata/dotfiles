@@ -7,3 +7,6 @@ web_search = true
 
 [features]
 memories = true
+
+[projects."/Users/norikikomori/Developments/work/prd-dpai/e3-eui"]
+trust_level = "trusted"
