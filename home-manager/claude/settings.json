@@ -47,5 +47,5 @@
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "theme": "dark",
-  "skipAutoPermissionPrompt": true
+  "agentPushNotifEnabled": true
 }
