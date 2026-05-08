@@ -14,7 +14,11 @@ trust_level = "trusted"
 [projects."/Users/norikikomori/Developments/work/prd-dpai/e3-dpai-rag-eval"]
 trust_level = "trusted"
 
+<<<<<<< HEAD
 [projects."/Users/norikikomori/Developments/demos/fluid-dynamics"]
+=======
+[projects."/home/komori/research/sp-analysis"]
+>>>>>>> refs/remotes/origin/main
 trust_level = "trusted"
 
 [marketplaces.openai-bundled]
@@ -25,5 +29,16 @@ source = "/Users/norikikomori/.codex/.tmp/bundled-marketplaces/openai-bundled"
 [plugins."browser-use@openai-bundled"]
 enabled = true
 
+<<<<<<< HEAD
 [tui.model_availability_nux]
 "gpt-5.5" = 1
+=======
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+>>>>>>> refs/remotes/origin/main
