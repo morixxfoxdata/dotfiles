@@ -14,6 +14,9 @@ trust_level = "trusted"
 [projects."/Users/norikikomori/Developments/work/prd-dpai/e3-dpai-rag-eval"]
 trust_level = "trusted"
 
+[projects."/Users/norikikomori/Developments/demos/fluid-dynamics"]
+trust_level = "trusted"
+
 [marketplaces.openai-bundled]
 last_updated = "2026-05-05T07:23:18Z"
 source_type = "local"
@@ -21,3 +24,6 @@ source = "/Users/norikikomori/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [plugins."browser-use@openai-bundled"]
 enabled = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 1
