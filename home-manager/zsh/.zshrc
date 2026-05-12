@@ -34,3 +34,7 @@ eval "$(zoxide init zsh)"
 
 # mise
 eval "$(mise activate zsh)"
+export PATH="$HOME/.local/bin:$PATH"
+
+# npm global (prefix is set in ~/.npmrc)
+export PATH="$HOME/.npm-global/bin:$PATH"
