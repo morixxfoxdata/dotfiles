@@ -14,10 +14,27 @@ trust_level = "trusted"
 [projects."/Users/norikikomori/Developments/work/prd-dpai/e3-dpai-rag-eval"]
 trust_level = "trusted"
 
+[projects."/Users/komori/Developments/research/sp-analysis"]
+trust_level = "trusted"
+
 [marketplaces.openai-bundled]
-last_updated = "2026-05-05T07:23:18Z"
+last_updated = "2026-05-07T07:44:17Z"
 source_type = "local"
-source = "/Users/norikikomori/.codex/.tmp/bundled-marketplaces/openai-bundled"
+source = "/Users/komori/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-05-07T08:39:38Z"
+source_type = "local"
+source = "/Users/komori/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
 [plugins."browser-use@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
 enabled = true
