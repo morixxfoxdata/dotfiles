@@ -21,7 +21,7 @@
       "Bash(rm *)",
       "Bash(chmod *)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "statusLine": {
     "type": "command",
@@ -30,7 +30,8 @@
   "enabledPlugins": {
     "codex@openai-codex": true,
     "claude-md-management@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -46,5 +47,6 @@
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "theme": "dark",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
