@@ -23,6 +23,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-opus-4-7",
   "statusLine": {
     "type": "command",
     "command": "python3 ~/.claude/statusline.py"
@@ -42,11 +43,24 @@
     }
   },
   "language": "japanese",
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
   "tui": "fullscreen",
+  "effortLevel": "max",
   "autoMemoryEnabled": false,
-  "theme": "dark",
+  "theme": "auto",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ]
+  }
 }
