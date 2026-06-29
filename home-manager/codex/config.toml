@@ -7,11 +7,18 @@ web_search = true
 
 [features]
 memories = true
+goals = true
 
 [projects."/Users/norikikomori/Developments/work/prd-dpai/e3-eui"]
 trust_level = "trusted"
 
 [projects."/Users/norikikomori/Developments/work/prd-dpai/e3-dpai-rag-eval"]
+trust_level = "trusted"
+
+[projects."/Users/komori/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/komori/life"]
 trust_level = "trusted"
 [plugins."documents@openai-primary-runtime"]
 enabled = true
