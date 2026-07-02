@@ -48,12 +48,12 @@ enabled = true
 "gpt-5.5" = 4
 
 [marketplaces.openai-bundled]
-last_updated = "2026-06-29T01:28:15Z"
+last_updated = "2026-06-29T04:49:25Z"
 source_type = "local"
 source = "/Users/komori/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-06-29T01:39:49Z"
+last_updated = "2026-07-01T06:39:42Z"
 source_type = "local"
 source = "/Users/komori/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
@@ -112,10 +112,10 @@ NODE_REPL_NODE_MODULE_DIRS = "/Applications/Codex.app/Contents/Resources/cua_nod
 NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/komori/.codex"
 CODEX_HOME = "/Users/komori/.codex"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "59e7bb81812ddd5f102e1d580335166e552c91686b5726218a985b59b4f89ca1"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "a05cdd282c2717f076e11bc0e94b7b20e1fc4759dbe28440bd1c734953606a56"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.623.42026"
+BROWSER_USE_CODEX_APP_VERSION = "26.623.61825"
 CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
