@@ -3,6 +3,3 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Nix profile (must be readable from non-interactive shells too, e.g. `ssh host cmd`)
 export PATH="$HOME/.nix-profile/bin:$PATH"
-
-# Claude Code
-export CLAUDE_CODE_EFFORT_LEVEL=xhigh
