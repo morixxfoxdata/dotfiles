@@ -3,6 +3,7 @@
 let
   zeno-zsh = pkgs.callPackage ./packages/zeno-zsh.nix {};
   difit = pkgs.callPackage ./packages/difit {};
+  herdr = pkgs.callPackage ./packages/herdr.nix {};
 in
 {
   imports = [
@@ -34,6 +35,7 @@ in
     zsh-syntax-highlighting
     zeno-zsh
     difit
+    herdr
     arto.packages.${system}.default
   ];
 
