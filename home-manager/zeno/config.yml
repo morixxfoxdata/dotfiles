@@ -56,15 +56,28 @@ snippets:
     keyword: gcl
     snippet: git clone
 
-  # -- Tools --
+  # -- Agent Tools --
   - name: claude
     keyword: c
     snippet: claude
+
+  - name: claude update
+    keyword: cu
+    snippet: claude update
 
   - name: claude continue
     keyword: cc
     snippet: claude -c
 
+  - name: codex cli
+    keyword: co
+    snippet: codex
+
+  - name: codex update
+    keyword: cou
+    snippet: codex update
+
+  # -- Dev Tools --
   - name: lazygit
     keyword: lg
     snippet: lazygit
