@@ -1,7 +1,7 @@
 model = "gpt-5.5"
 model_reasoning_effort = "xhigh"
 personality = "pragmatic"
-service_tier = "priority"
+service_tier = "fast"
 
 notify = ["/Users/komori/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 
@@ -32,6 +32,9 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/home/komori/developments/exp-wdmgi"]
+trust_level = "trusted"
+
+[projects."/Users/norikikomori/Developments/work/IHI/pjt-ih-patrol"]
 trust_level = "trusted"
 [plugins."documents@openai-primary-runtime"]
 enabled = true

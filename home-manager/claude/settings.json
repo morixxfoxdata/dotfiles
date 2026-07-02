@@ -58,7 +58,7 @@
   },
   "language": "japanese",
   "tui": "fullscreen",
-  "autoMemoryEnabled": true,
+  "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "agentPushNotifEnabled": true,

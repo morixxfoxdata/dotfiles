@@ -39,3 +39,6 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 # >>> Codex installer >>>
 export PATH="/home/komori/.local/bin:$PATH"
 # <<< Codex installer <<<
+
+# claude code
+export CLAUDE_CODE_DISABLE_AGENT_VIEW=1
