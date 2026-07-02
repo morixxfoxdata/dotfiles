@@ -1,6 +1,7 @@
 model = "gpt-5.5"
-model_reasoning_effort = "high"
+model_reasoning_effort = "xhigh"
 personality = "pragmatic"
+service_tier = "priority"
 
 notify = ["/Users/komori/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 
@@ -25,6 +26,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/komori/Developments/research/sp-analysis"]
+trust_level = "trusted"
+
+[projects."/home/komori/research/sp-analysis"]
+trust_level = "trusted"
+
+[projects."/home/komori/developments/exp-wdmgi"]
 trust_level = "trusted"
 [plugins."documents@openai-primary-runtime"]
 enabled = true
@@ -119,3 +126,14 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunct
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
 BROWSER_USE_CODEX_APP_VERSION = "26.623.61825"
 CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
+
+# >>> fugu:model_providers.sakana >>>
+[model_providers.sakana]
+name = "Sakana API"
+base_url = "https://api.sakana.ai/v1"
+env_key = "SAKANA_API_KEY"
+wire_api = "responses"
+stream_idle_timeout_ms = 7200000
+stream_max_retries = 5
+request_max_retries = 4
+# <<< fugu:model_providers.sakana <<<
