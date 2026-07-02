@@ -30,7 +30,7 @@ nix run .#switch
 |----------|--------|------|
 | `NorikinoMacBook-Pro` | aarch64-darwin | MacBook Pro (メイン) |
 | `Mac-mini` | aarch64-darwin | Mac Mini |
-| `gpu-server` | x86_64-linux | GPU サーバー |
+| `gansan` | x86_64-linux | GPU サーバー |
 
 新しいマシンを追加するには `hosts/<name>.nix` を作成し、`flake.nix` の `hosts` に追加する。
 
@@ -92,7 +92,7 @@ dotfiles/
 │   ├── default.nix        # hostSpec オプション定義
 │   ├── mbp.nix            # MacBook Pro
 │   ├── mac-mini.nix       # Mac Mini
-│   └── gpu-server.nix     # GPU サーバー
+│   └── gansan.nix         # GPU サーバー
 ├── .github/workflows/     # CI (nix flake check)
 └── home-manager/
     ├── home.nix           # パッケージ管理・Home Manager 設定
