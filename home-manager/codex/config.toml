@@ -9,6 +9,7 @@ notify = ["/Users/komori/.codex/computer-use/Codex Computer Use.app/Contents/Sha
 web_search = true
 
 [features]
+hooks = true
 memories = true
 goals = true
 js_repl = false
@@ -36,6 +37,9 @@ trust_level = "trusted"
 
 [projects."/Users/norikikomori/Developments/work/IHI/pjt-ih-patrol"]
 trust_level = "trusted"
+
+[projects."/Users/komori/herdr-agent"]
+trust_level = "trusted"
 [plugins."documents@openai-primary-runtime"]
 enabled = true
 [plugins."presentations@openai-primary-runtime"]
@@ -58,7 +62,7 @@ enabled = true
 "gpt-5.5" = 4
 
 [marketplaces.openai-bundled]
-last_updated = "2026-06-29T04:49:25Z"
+last_updated = "2026-07-02T05:34:22Z"
 source_type = "local"
 source = "/Users/komori/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
@@ -122,12 +126,12 @@ NODE_REPL_NODE_MODULE_DIRS = "/Applications/Codex.app/Contents/Resources/cua_nod
 NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/komori/.codex"
 CODEX_HOME = "/Users/komori/.codex"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "a05cdd282c2717f076e11bc0e94b7b20e1fc4759dbe28440bd1c734953606a56"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "cb79053fda6deb0f3b5d6f0d90d4257305ebdbd1e378a12e8fbc5bde782eb59b"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.623.61825"
+BROWSER_USE_CODEX_APP_VERSION = "26.623.81905"
 CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
 
 # >>> fugu:model_providers.sakana >>>
@@ -139,4 +143,9 @@ wire_api = "responses"
 stream_idle_timeout_ms = 7200000
 stream_max_retries = 5
 request_max_retries = 4
+
+[hooks.state]
+
+[hooks.state."/Users/komori/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:53b612978a8393414207d828a82eb7e0823d0c53a13785f32b67b9af8553f918"
 # <<< fugu:model_providers.sakana <<<

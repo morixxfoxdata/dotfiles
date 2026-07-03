@@ -24,15 +24,15 @@
     "defaultMode": "auto"
   },
   "model": "sonnet",
-  "effortLevel": "xhigh",
   "hooks": {
-    "Notification": [
+    "SessionStart": [
       {
-        "matcher": "",
+        "matcher": "*",
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\"'"
+            "command": "bash '/Users/komori/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
           }
         ]
       }
@@ -43,9 +43,9 @@
     "command": "python3 ~/.claude/statusline.py"
   },
   "enabledPlugins": {
-    "codex@openai-codex": true,
-    "claude-md-management@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "codex@openai-codex": true,
     "frontend-design@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
@@ -57,6 +57,7 @@
     }
   },
   "language": "japanese",
+  "effortLevel": "xhigh",
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,

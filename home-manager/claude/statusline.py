@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Statusline: model/context/rate-limit indicators + git info"""
 import json, subprocess, sys
+from datetime import datetime
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
@@ -23,6 +24,16 @@ def gradient(pct):
 def dot(pct):
     p = round(pct)
     return f'{gradient(pct)}●{R} {BOLD}{p}%{R}'
+
+def reset_str(ts, with_date=False):
+    if not ts:
+        return ''
+    try:
+        dt = datetime.fromtimestamp(ts)
+        fmt = '%m/%d %H:%M' if with_date else '%H:%M'
+        return f'{DIM}(更新 {dt.strftime(fmt)}){R}'
+    except Exception:
+        return ''
 
 def git_info(cwd):
     def _run(*args):
@@ -57,12 +68,14 @@ ctx = data.get('context_window', {}).get('used_percentage')
 if ctx is not None:
     parts.append(f'ctx {dot(ctx)}')
 
-five = data.get('rate_limits', {}).get('five_hour', {}).get('used_percentage')
+five_hour = data.get('rate_limits', {}).get('five_hour', {})
+five = five_hour.get('used_percentage')
 if five is not None:
-    parts.append(f'5h {dot(five)}')
+    parts.append(f'5h {dot(five)} {reset_str(five_hour.get("resets_at"))}'.rstrip())
 
-week = data.get('rate_limits', {}).get('seven_day', {}).get('used_percentage')
+seven_day = data.get('rate_limits', {}).get('seven_day', {})
+week = seven_day.get('used_percentage')
 if week is not None:
-    parts.append(f'7d {dot(week)}')
+    parts.append(f'7d {dot(week)} {reset_str(seven_day.get("resets_at"), with_date=True)}'.rstrip())
 
 print(f'  {DIM}·{R}  '.join(parts), end='')
