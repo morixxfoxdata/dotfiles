@@ -3,7 +3,8 @@ model_reasoning_effort = "xhigh"
 personality = "pragmatic"
 service_tier = "fast"
 
-notify = ["/Users/komori/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+
+notify = ["/Users/norikikomori/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 
 [tools]
 web_search = true
@@ -43,6 +44,9 @@ trust_level = "trusted"
 
 [projects."/home/komori/research/gi-simulation"]
 trust_level = "trusted"
+
+[projects."/Users/norikikomori/Developments/personal/disk-analyzer"]
+trust_level = "trusted"
 [plugins."documents@openai-primary-runtime"]
 enabled = true
 [plugins."presentations@openai-primary-runtime"]
@@ -61,18 +65,21 @@ enabled = true
 
 [plugins."template-creator@openai-primary-runtime"]
 enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 
 [marketplaces.openai-bundled]
-last_updated = "2026-07-02T05:34:22Z"
+last_updated = "2026-07-06T22:18:32Z"
 source_type = "local"
-source = "/Users/komori/.codex/.tmp/bundled-marketplaces/openai-bundled"
+source = "/Users/norikikomori/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-07-01T06:39:42Z"
+last_updated = "2026-07-06T22:19:17Z"
 source_type = "local"
-source = "/Users/komori/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+source = "/Users/norikikomori/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
 [desktop]
 ambient-suggestions-enabled = true
@@ -127,14 +134,14 @@ startup_timeout_sec = 120
 NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
 NODE_REPL_NODE_MODULE_DIRS = "/Applications/Codex.app/Contents/Resources/cua_node/lib/node_modules"
 NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node"
-NODE_REPL_TRUSTED_CODE_PATHS = "/Users/komori/.codex"
-CODEX_HOME = "/Users/komori/.codex"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "cb79053fda6deb0f3b5d6f0d90d4257305ebdbd1e378a12e8fbc5bde782eb59b"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/norikikomori/.codex"
+CODEX_HOME = "/Users/norikikomori/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "60e4902788f207f88fd09344dfeafe07769488bdb2924bbb12b322c3b9d2b999"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.623.81905"
+BROWSER_USE_CODEX_APP_VERSION = "26.623.101652"
 CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
 
 # >>> fugu:model_providers.sakana >>>
