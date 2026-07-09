@@ -43,6 +43,9 @@ in
     # Codex
     link_force "${dotfilesDir}/codex/config.toml" "$HOME/.codex/config.toml"
 
+    # Herdr
+    link_force "${dotfilesDir}/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
     ${lib.optionalString isDarwin ''
     # macOS only
     # Karabiner
