@@ -50,6 +50,9 @@ trust_level = "trusted"
 
 [projects."/home/komori"]
 trust_level = "trusted"
+
+[projects."/home/komori/developments/wdmgi-proceedings"]
+trust_level = "trusted"
 [plugins."documents@openai-primary-runtime"]
 enabled = true
 [plugins."presentations@openai-primary-runtime"]
