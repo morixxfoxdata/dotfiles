@@ -136,6 +136,16 @@ command = "$HOME/.config/herdr/scripts/file-viewer-popup.sh"
 width = "80%"
 height = "80%"
 
+# Lazygit in a popup. herdr bindings are a single chord (prefix + one key with
+# optional modifiers) — sequences like "prefix+l+g" are rejected — so "L" is
+# the lazygit mnemonic. prefix+alt+g needs macos-option-as-alt in Ghostty.
+[[keys.command]]
+key = "prefix+shift+l"
+type = "popup"
+command = "lazygit"
+width = "90%"
+height = "90%"
+
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 # [keys.indexed]
