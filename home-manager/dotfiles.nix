@@ -45,6 +45,7 @@ in
 
     # Herdr
     link_force "${dotfilesDir}/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+    link_force "${dotfilesDir}/herdr/scripts" "$HOME/.config/herdr/scripts"
 
     ${lib.optionalString isDarwin ''
     # macOS only
