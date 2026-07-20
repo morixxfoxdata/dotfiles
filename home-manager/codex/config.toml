@@ -1,5 +1,5 @@
 model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
+model_reasoning_effort = "xhigh"
 personality = "pragmatic"
 service_tier = "default"
 
@@ -56,6 +56,9 @@ trust_level = "trusted"
 
 [projects."/Users/norikikomori/Developments/work/feasibility-msm-assembly"]
 trust_level = "trusted"
+
+[projects."/Users/norikikomori/Documents/Codex/2026-07-18/new-chat"]
+trust_level = "trusted"
 [plugins."documents@openai-primary-runtime"]
 enabled = true
 [plugins."presentations@openai-primary-runtime"]
@@ -89,12 +92,12 @@ enabled = true
 "gpt-5.6-sol" = 4
 
 [marketplaces.openai-bundled]
-last_updated = "2026-07-14T09:20:09Z"
+last_updated = "2026-07-18T07:14:10Z"
 source_type = "local"
 source = "/Users/norikikomori/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-07-10T03:27:09Z"
+last_updated = "2026-07-16T14:44:31Z"
 source_type = "local"
 source = "/Users/norikikomori/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
@@ -102,7 +105,7 @@ source = "/Users/norikikomori/.cache/codex-runtimes/codex-primary-runtime/plugin
 ambient-suggestions-enabled = true
 appearanceTheme = "dark"
 appearanceDarkCodeThemeId = "codex"
-conversationDetailMode = "STEPS_COMMANDS"
+conversationDetailMode = "STEPS_PROSE"
 followUpQueueMode = "queue"
 avatar-overlay-mascot-width-px = 156
 dock-icon-preference = "codex-system"
@@ -156,14 +159,14 @@ NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_n
 NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/norikikomori/.codex"
 CODEX_HOME = "/Users/norikikomori/.codex"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f,cf732b4a285497bfd7e75a2ac14879bce9ae644eb4e1babeb17bb6a840dfc9bd"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "461c4ba94b821ec805da79c8e8138fe510b1b3358609fc93da47387a2cf3fbf3,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.707.72221"
-SKY_CUA_SERVICE_PATH = "/Users/norikikomori/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000387/Codex Computer Use.app"
+BROWSER_USE_CODEX_APP_VERSION = "26.715.31925"
+SKY_CUA_SERVICE_PATH = "/Users/norikikomori/.codex/plugins/cache/openai-bundled/computer-use/1.0.1000451/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
 
 [mcp_servers.computer-use]
@@ -192,4 +195,9 @@ trusted_hash = "sha256:9c77168546330a4624bfe1a1ed473f59f3abafbce0255677db83ed164
 
 [notice]
 hide_rate_limit_model_nudge = true
+
+[shell_environment_policy.set]
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "461c4ba94b821ec805da79c8e8138fe510b1b3358609fc93da47387a2cf3fbf3,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/norikikomori/.codex"
 # <<< fugu:model_providers.sakana <<<
