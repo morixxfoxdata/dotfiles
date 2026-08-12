@@ -2,7 +2,6 @@
 
 let
   zeno-zsh = pkgs.callPackage ./packages/zeno-zsh.nix {};
-  difit = pkgs.callPackage ./packages/difit {};
   herdr = pkgs.callPackage ./packages/herdr.nix {};
 
   # Herdr plugins to keep installed. Clones/builds live under
@@ -40,7 +39,7 @@ in
     zsh-autosuggestions
     zsh-syntax-highlighting
     zeno-zsh
-    difit
+    hunk
     herdr
     arto.packages.${system}.default
   ];
