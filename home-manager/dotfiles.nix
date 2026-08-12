@@ -40,9 +40,6 @@ in
     link_force "${dotfilesDir}/claude/rules" "$HOME/.claude/rules"
     link_force "${dotfilesDir}/claude/hooks" "$HOME/.claude/hooks"
 
-    # Codex
-    link_force "${dotfilesDir}/codex/config.toml" "$HOME/.codex/config.toml"
-
     # Herdr
     link_force "${dotfilesDir}/herdr/config.toml" "$HOME/.config/herdr/config.toml"
     link_force "${dotfilesDir}/herdr/scripts" "$HOME/.config/herdr/scripts"
