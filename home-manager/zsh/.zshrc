@@ -6,6 +6,11 @@ if [ -f "$HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlightin
   source "$HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
+# fzf 
+if [ -f "$HOME/.nix-profile/share/fzf/key-bindings.zsh" ]; then
+  source "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
+fi
+
 # Zeno
 if [ -f "$HOME/.nix-profile/share/zeno/zeno.zsh" ]; then
   source "$HOME/.nix-profile/share/zeno/zeno.zsh"
