@@ -12,6 +12,14 @@ if [ -f "$HOME/.nix-profile/share/fzf/key-bindings.zsh" ]; then
 fi
 
 # Zeno
+# nixpkgs の deno が libsqlite3 を動的リンクするようになり、@db/sqlite が
+# dlopen する prebuilt sqlite とシンボル衝突して zeno-server が SIGSEGV する。
+# deno がリンクしている sqlite を指定して衝突を回避する。
+if command -v deno >/dev/null 2>&1; then
+  _deno_sqlite=$(ldd "$(readlink -f "$(command -v deno)")" 2>/dev/null | awk '/libsqlite3/{print $3}')
+  [ -n "$_deno_sqlite" ] && export DENO_SQLITE_PATH="$_deno_sqlite"
+  unset _deno_sqlite
+fi
 if [ -f "$HOME/.nix-profile/share/zeno/zeno.zsh" ]; then
   source "$HOME/.nix-profile/share/zeno/zeno.zsh"
   if [[ -n $ZENO_LOADED ]]; then
