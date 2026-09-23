@@ -34,6 +34,9 @@ in
     google-cloud-sdk
     rustup
     eza
+    btop
+    tree
+    poppler-utils
     zoxide
     deno
     zsh-autosuggestions

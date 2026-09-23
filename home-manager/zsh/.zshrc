@@ -46,6 +46,10 @@ eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 
+# macOS の /etc/zprofile (path_helper) が .zshenv の後に /usr/bin 等を前に並べ替えるため、Nix を再度先頭へ
+export PATH="$HOME/.nix-profile/bin:$PATH"
+typeset -U path
+
 # npm global (prefix is set in ~/.npmrc)
 export PATH="$HOME/.npm-global/bin:$PATH"
 

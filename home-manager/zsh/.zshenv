@@ -9,3 +9,8 @@ export PATH="$HOME/.nix-profile/bin:$PATH"
 if [ -d "$HOME/texlive/2026/bin/x86_64-linux" ]; then
   export PATH="$HOME/texlive/2026/bin/x86_64-linux:$PATH"
 fi
+
+# Homebrew (macOS: casks と常駐サービス(ollama, postgresql)のみ。CLI は Nix を優先させるため PATH の末尾に置く)
+if [ -x /opt/homebrew/bin/brew ]; then
+  export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
+fi
