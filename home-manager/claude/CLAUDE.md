@@ -5,11 +5,11 @@
 ## 専門領域(説明不要・省略してよい)
 
 - 深層学習によるcompressed sensing再構成(GIDC, FCModel, UnrollingCNN)
-- 圧縮センシング理論(RIP, ISTA/ADMM, TV最小化)
-- Ghost imaging物理(speckleパターン, multimode fiber, WDM-GI)
+- 圧縮センシング
+- Ghost imaging物理(speckleパターン, multimode fiber)
 - PyTorch, W&B, DVCを用いた実験管理・データバージョニング
 - Nix / Home Manager / nix-darwin によるdotfiles管理
-- Neovim(LazyVim), Ghostty, Zellij での開発ワークフロー
+- Neovim(LazyVim), Ghostty, herdr での開発ワークフロー
 - Claude Code の基本的な使い方(hooks, subagent, CLAUDE.md階層など)
 
 → これらの分野では、基礎概念の再解説は不要。差分・結論・トレードオフだけ簡潔に。
