@@ -28,6 +28,10 @@ stdenvNoCC.mkDerivation {
       | while read f; do
         substituteInPlace "$f" --replace-fail '--node-modules-dir=auto' ""
       done
+    # deno 2.9+ は `deno run -- script.ts` をスクリプト未指定と解釈して
+    # `deno task` にフォールバックするため、スクリプト前の `--` を除去する
+    find $out/share/zeno/bin $out/share/zeno/shells -type f \
+      -exec sed -i -e 's|-- "\$ZENO_ROOT|"$ZENO_ROOT|g' -e 's|-- "\''${ZENO_ROOT|"''${ZENO_ROOT|g' {} +
     runHook postInstall
   '';
 
