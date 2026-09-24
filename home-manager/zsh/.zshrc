@@ -21,6 +21,9 @@ if command -v deno >/dev/null 2>&1; then
   unset _deno_sqlite
 fi
 if [ -f "$HOME/.nix-profile/share/zeno/zeno.zsh" ]; then
+  # 親シェルから古い store path の ZENO_ROOT を継承すると home-manager switch 後も
+  # 旧版の zeno が使われ続けるため、常に現在のプロファイルを指すように上書きする。
+  export ZENO_ROOT="$(readlink -f "$HOME/.nix-profile/share/zeno")"
   source "$HOME/.nix-profile/share/zeno/zeno.zsh"
   if [[ -n $ZENO_LOADED ]]; then
     bindkey ' '  zeno-auto-snippet
