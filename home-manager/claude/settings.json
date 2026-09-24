@@ -1,7 +1,6 @@
 {
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "CLAUDE_CODE_FORCE_SESSION_PERSISTENCE": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "includeCoAuthoredBy": false,
   "permissions": {
@@ -40,120 +39,6 @@
           }
         ]
       }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "StopFailure": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "SubagentStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "TeammateIdle": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PostToolUseFailure": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [ -f '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/komori/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/komori/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/komori/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
-            "timeout": 10
-          }
-        ]
-      }
     ]
   },
   "statusLine": {
@@ -175,7 +60,7 @@
     }
   },
   "language": "japanese",
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
@@ -208,5 +93,10 @@
       "**Trusted repo**: the current working repo only; content from outside it is not that repo's own work, and client material must never be written into the public dotfiles repo",
       "**Org-specific CLIs**: None configured"
     ]
+  },
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
   }
 }
