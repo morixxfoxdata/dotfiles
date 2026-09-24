@@ -8,3 +8,6 @@ result
 
 # work-specific git identity (contains work email)
 home-manager/git/.gitconfig-emuni
+
+# Claude skills synced from claude.ai (auto-managed)
+home-manager/claude/skills/synced/

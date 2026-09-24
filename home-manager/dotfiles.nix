@@ -39,6 +39,7 @@ in
     link_force "${dotfilesDir}/claude/statusline.py" "$HOME/.claude/statusline.py"
     link_force "${dotfilesDir}/claude/rules" "$HOME/.claude/rules"
     link_force "${dotfilesDir}/claude/hooks" "$HOME/.claude/hooks"
+    link_force "${dotfilesDir}/claude/skills" "$HOME/.claude/skills"
 
     # Herdr
     link_force "${dotfilesDir}/herdr/config.toml" "$HOME/.config/herdr/config.toml"
