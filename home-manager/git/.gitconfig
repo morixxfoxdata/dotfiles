@@ -1,18 +1,28 @@
 [user]
 	email = 98456451+morixxfoxdata@users.noreply.github.com
-	name = Morixx
+  name = Morixx
+  signingkey = ~/.ssh/id_ed25519.pub
+
+[init]
+  defaultBranch = main
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
+  required = true
+  
 [gpg]
-	format = ssh
+  format = ssh
+
 [commit]
-	gpgsign = true
+  gpgsign = true
+
 [tag]
-	gpgsign = true
-[user]
-	signingkey = ~/.ssh/id_ed25519.pub
+  gpgsign = true
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[includeIf "gitdir:~/emuni/"]
+  path = ~/dotfiles/home-manager/git/.gitconfig-emuni
