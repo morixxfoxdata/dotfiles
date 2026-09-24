@@ -5,3 +5,6 @@ result
 *.swo
 .env
 .env.*
+
+# work-specific git identity (contains work email)
+home-manager/git/.gitconfig-emuni
