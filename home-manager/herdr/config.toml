@@ -230,7 +230,8 @@ agent_panel_sort = "priority"
 # herdr = show in-app toasts
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
-# delivery = "off"
+# (2026-08-24 パイプライン整備: 人間確認ポイントの herdr notification show 用に有効化)
+delivery = "herdr"
 # delay_seconds = 1
 
 [ui.toast.herdr]
