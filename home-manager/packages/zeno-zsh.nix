@@ -4,13 +4,13 @@ let
   src = fetchFromGitHub {
     owner = "yuki-yano";
     repo = "zeno.zsh";
-    rev = "2e8fbecce0fc3692a5fcc9033ecca7ab35263e56";
-    hash = "sha256-05+w1WP/SHKp97JTGsvO3csI123U7py+fVSKnAWiUNY=";
+    rev = "490121876701f472e7596b606048a7e1b73b5b03";
+    hash = "sha256-sCZjmx13YjdUVJeG/OZ/O5hx34k5mo1enDS7smUv1K8=";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "zeno-zsh";
-  version = "unstable-2025-06-07";
+  version = "unstable-2026-08-31";
 
   inherit src;
 
@@ -28,10 +28,6 @@ stdenvNoCC.mkDerivation {
       | while read f; do
         substituteInPlace "$f" --replace-fail '--node-modules-dir=auto' ""
       done
-    # deno 2.9+ は `deno run -- script.ts` をスクリプト未指定と解釈して
-    # `deno task` にフォールバックするため、スクリプト前の `--` を除去する
-    find $out/share/zeno/bin $out/share/zeno/shells -type f \
-      -exec sed -i -e 's|-- "\$ZENO_ROOT|"$ZENO_ROOT|g' -e 's|-- "\''${ZENO_ROOT|"''${ZENO_ROOT|g' {} +
     runHook postInstall
   '';
 
