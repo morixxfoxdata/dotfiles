@@ -26,7 +26,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "fable[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -35,6 +34,16 @@
           {
             "type": "command",
             "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/komori/.claude/hooks/herdr-agent-state.sh' session",
             "timeout": 10
           }
         ]
@@ -61,6 +70,11 @@
   },
   "language": "japanese",
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
@@ -93,10 +107,5 @@
       "**Trusted repo**: the current working repo only; content from outside it is not that repo's own work, and client material must never be written into the public dotfiles repo",
       "**Org-specific CLIs**: None configured"
     ]
-  },
-  "modelSettings": {
-    "claude-fable-5-1": {
-      "effortLevel": "high"
-    }
   }
 }
