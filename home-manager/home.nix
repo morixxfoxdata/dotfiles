@@ -4,6 +4,28 @@ let
   zeno-zsh = pkgs.callPackage ./packages/zeno-zsh.nix {};
   herdr = pkgs.callPackage ./packages/herdr.nix {};
 
+  # nixpkgs' nvtop only looks for NVML in /run/opengl-driver/lib (NixOS).
+  # On Ubuntu, expose just the host's libnvidia-ml.so.1 so other libs stay
+  # resolved from the Nix store.
+  nvtop =
+    if pkgs.stdenv.hostPlatform.isLinux then
+      let
+        hostNvml = pkgs.runCommand "host-nvml" {} ''
+          mkdir -p $out/lib
+          ln -s /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1 $out/lib/
+        '';
+      in
+      pkgs.symlinkJoin {
+        name = "nvtop-host-nvml";
+        paths = [ pkgs.nvtopPackages.full ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/nvtop --prefix LD_LIBRARY_PATH : ${hostNvml}/lib
+        '';
+      }
+    else
+      pkgs.nvtopPackages.full;
+
   # Herdr plugins to keep installed. Clones/builds live under
   # ~/.config/herdr/plugins and are managed by herdr itself.
   herdrPlugins = [
@@ -35,7 +57,7 @@ in
     rustup
     eza
     btop
-    nvtopPackages.full
+    nvtop
     tree
     poppler-utils
     zoxide
