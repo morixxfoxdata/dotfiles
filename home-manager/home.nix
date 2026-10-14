@@ -35,6 +35,7 @@ in
     rustup
     eza
     btop
+    nvtopPackages.full
     tree
     poppler-utils
     zoxide
