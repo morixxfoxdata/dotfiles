@@ -4,13 +4,13 @@ let
   src = fetchFromGitHub {
     owner = "yuki-yano";
     repo = "zeno.zsh";
-    rev = "490121876701f472e7596b606048a7e1b73b5b03";
-    hash = "sha256-sCZjmx13YjdUVJeG/OZ/O5hx34k5mo1enDS7smUv1K8=";
+    rev = "f6ed8fc16cc32dc110fa4f77a50386624067fbe2";
+    hash = "sha256-KmtmmGzWGBLslro3fkA0qx9YNV5lwlrgRzz7tiKSwvA=";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "zeno-zsh";
-  version = "unstable-2026-08-31";
+  version = "unstable-2026-10-03";
 
   inherit src;
 
