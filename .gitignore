@@ -11,3 +11,6 @@ home-manager/git/.gitconfig-emuni
 
 # Claude skills synced from claude.ai (auto-managed)
 home-manager/claude/skills/synced/
+
+# Installed by codebase-memory-mcp (auto-managed)
+home-manager/claude/skills/codebase-memory/
