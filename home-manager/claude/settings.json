@@ -48,6 +48,27 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*__wrap_up",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/japanese-guard.py\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/japanese-guard.py\""
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -80,12 +101,19 @@
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
     }
   },
+  "advisorModel": "fable",
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
+  "autoCompactEnabled": true,
+  "autoContinueAtUsageLimit": true,
+  "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "autoMode": {
